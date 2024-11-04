@@ -1,0 +1,27 @@
+import pandas as pd
+from pathlib import Path
+
+def describe(dataframe):
+    print(dataframe.shape)
+    print(dataframe.head)
+    print(dataframe.tail)
+    print(dataframe.columns)
+    print(dataframe.dtypes)
+    print(dataframe.info)
+    print(dataframe.describe)
+
+
+
+if __name__ == "__main__":
+    events_raw_csv = Path(__file__).parent.parent.joinpath('data', 'paralympics_events_raw.csv')
+    all_raw_excel = Path(__file__).parent.parent.joinpath('data', 'paralympics_all_raw.xlsx')
+
+    events_raw_df = pd.read_csv(events_raw_csv)
+    medal_standing_raw_df = pd.read_excel(all_raw_excel, 'medal_standings')
+
+    describe(events_raw_df)
+
+
+
+
+
